@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thrifter’s Compass</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="map"></div>
+
+  <button id="add-sale-btn">+</button>
+
+  <div id="search-container">
+    <input type="text" id="search-input" placeholder="Search items (e.g. 'Furniture')..." />
+  </div>
+
+  <button id="list-toggle">Show List</button>
+
+  <div id="list-panel">
+    <div class="handle"></div>
+    <h2>Sales Near You</h2>
+    <div id="list-content"></div>
+  </div>
+
+  <div id="filters">
+    <button data-category="All" class="active">All</button>
+    <button data-category="Furniture">Furniture</button>
+    <button data-category="Clothes">Clothes</button>
+    <button data-category="Tools">Tools</button>
+  </div>
+
+  <div id="form-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Post Your Sale</h2>
+      <form id="post-sale-form">
+        <input type="text" id="form-title" placeholder="Sale Title" required>
+        
+        <div style="display: flex; gap: 8px;">
+          <input type="text" id="form-address" placeholder="Address, City, State" required style="flex: 1;">
+          <button type="button" id="locate-me-btn" title="Use my GPS">📍</button>
+        </div>
+
+        <select id="form-category">
+          <option value="Furniture">Furniture</option>
+          <option value="Clothes">Clothes</option>
+          <option value="Tools">Tools</option>
+        </select>
+        <input type="date" id="form-date" required>
+        <input type="text" id="form-time" placeholder="Time (e.g. 8am – 1pm)" required>
+        <input type="text" id="form-highlights" placeholder="Highlights (comma separated)">
+        <button type="submit">Post to Map</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
